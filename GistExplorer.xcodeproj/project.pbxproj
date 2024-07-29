@@ -15,6 +15,14 @@
 		7F30FB352C57D604008CBA26 /* GistExplorerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F30FB342C57D604008CBA26 /* GistExplorerTests.swift */; };
 		7F30FB3F2C57D604008CBA26 /* GistExplorerUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F30FB3E2C57D604008CBA26 /* GistExplorerUITests.swift */; };
 		7F30FB412C57D604008CBA26 /* GistExplorerUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F30FB402C57D604008CBA26 /* GistExplorerUITestsLaunchTests.swift */; };
+		7F30FB542C5808F7008CBA26 /* APIClientProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F30FB532C5808F7008CBA26 /* APIClientProtocol.swift */; };
+		7F30FB562C580919008CBA26 /* Endpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F30FB552C580919008CBA26 /* Endpoint.swift */; };
+		7F30FB582C58092E008CBA26 /* NetworkError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F30FB572C58092E008CBA26 /* NetworkError.swift */; };
+		7F30FB5B2C580F65008CBA26 /* GistListService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F30FB5A2C580F65008CBA26 /* GistListService.swift */; };
+		7F30FB5D2C580F73008CBA26 /* GistDetailService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F30FB5C2C580F73008CBA26 /* GistDetailService.swift */; };
+		7F30FB602C580FE8008CBA26 /* GistModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F30FB5F2C580FE8008CBA26 /* GistModel.swift */; };
+		7F30FB622C5811D7008CBA26 /* ViewConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F30FB612C5811D7008CBA26 /* ViewConfiguration.swift */; };
+		7F30FB642C5816BF008CBA26 /* GistListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F30FB632C5816BF008CBA26 /* GistListViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -47,6 +55,14 @@
 		7F30FB3A2C57D604008CBA26 /* GistExplorerUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = GistExplorerUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		7F30FB3E2C57D604008CBA26 /* GistExplorerUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GistExplorerUITests.swift; sourceTree = "<group>"; };
 		7F30FB402C57D604008CBA26 /* GistExplorerUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GistExplorerUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		7F30FB532C5808F7008CBA26 /* APIClientProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIClientProtocol.swift; sourceTree = "<group>"; };
+		7F30FB552C580919008CBA26 /* Endpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Endpoint.swift; sourceTree = "<group>"; };
+		7F30FB572C58092E008CBA26 /* NetworkError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkError.swift; sourceTree = "<group>"; };
+		7F30FB5A2C580F65008CBA26 /* GistListService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GistListService.swift; sourceTree = "<group>"; };
+		7F30FB5C2C580F73008CBA26 /* GistDetailService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GistDetailService.swift; sourceTree = "<group>"; };
+		7F30FB5F2C580FE8008CBA26 /* GistModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GistModel.swift; sourceTree = "<group>"; };
+		7F30FB612C5811D7008CBA26 /* ViewConfiguration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewConfiguration.swift; sourceTree = "<group>"; };
+		7F30FB632C5816BF008CBA26 /* GistListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GistListViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -99,9 +115,14 @@
 			children = (
 				7F30FB1D2C57D601008CBA26 /* AppDelegate.swift */,
 				7F30FB1F2C57D601008CBA26 /* SceneDelegate.swift */,
-				7F30FB212C57D601008CBA26 /* ViewController.swift */,
-				7F30FB262C57D604008CBA26 /* Assets.xcassets */,
-				7F30FB282C57D604008CBA26 /* LaunchScreen.storyboard */,
+				7F30FB4D2C580665008CBA26 /* Models */,
+				7F30FB4E2C580670008CBA26 /* ViewModels */,
+				7F30FB4F2C58067E008CBA26 /* View */,
+				7F30FB592C580F31008CBA26 /* Network */,
+				7F30FB5E2C580FB2008CBA26 /* API */,
+				7F30FB522C5806A9008CBA26 /* Extensions */,
+				7F30FB512C580699008CBA26 /* Supporting Files */,
+				7F30FB502C58068C008CBA26 /* Resources */,
 				7F30FB2B2C57D604008CBA26 /* Info.plist */,
 			);
 			path = GistExplorer;
@@ -122,6 +143,73 @@
 				7F30FB402C57D604008CBA26 /* GistExplorerUITestsLaunchTests.swift */,
 			);
 			path = GistExplorerUITests;
+			sourceTree = "<group>";
+		};
+		7F30FB4D2C580665008CBA26 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				7F30FB5F2C580FE8008CBA26 /* GistModel.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		7F30FB4E2C580670008CBA26 /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				7F30FB632C5816BF008CBA26 /* GistListViewModel.swift */,
+			);
+			path = ViewModels;
+			sourceTree = "<group>";
+		};
+		7F30FB4F2C58067E008CBA26 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				7F30FB212C57D601008CBA26 /* ViewController.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		7F30FB502C58068C008CBA26 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				7F30FB282C57D604008CBA26 /* LaunchScreen.storyboard */,
+				7F30FB262C57D604008CBA26 /* Assets.xcassets */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		7F30FB512C580699008CBA26 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				7F30FB612C5811D7008CBA26 /* ViewConfiguration.swift */,
+			);
+			path = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		7F30FB522C5806A9008CBA26 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		7F30FB592C580F31008CBA26 /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				7F30FB5A2C580F65008CBA26 /* GistListService.swift */,
+				7F30FB5C2C580F73008CBA26 /* GistDetailService.swift */,
+			);
+			path = Network;
+			sourceTree = "<group>";
+		};
+		7F30FB5E2C580FB2008CBA26 /* API */ = {
+			isa = PBXGroup;
+			children = (
+				7F30FB532C5808F7008CBA26 /* APIClientProtocol.swift */,
+				7F30FB552C580919008CBA26 /* Endpoint.swift */,
+				7F30FB572C58092E008CBA26 /* NetworkError.swift */,
+			);
+			path = API;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -254,9 +342,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7F30FB602C580FE8008CBA26 /* GistModel.swift in Sources */,
 				7F30FB222C57D601008CBA26 /* ViewController.swift in Sources */,
+				7F30FB542C5808F7008CBA26 /* APIClientProtocol.swift in Sources */,
+				7F30FB642C5816BF008CBA26 /* GistListViewModel.swift in Sources */,
+				7F30FB622C5811D7008CBA26 /* ViewConfiguration.swift in Sources */,
+				7F30FB5B2C580F65008CBA26 /* GistListService.swift in Sources */,
 				7F30FB1E2C57D601008CBA26 /* AppDelegate.swift in Sources */,
+				7F30FB582C58092E008CBA26 /* NetworkError.swift in Sources */,
+				7F30FB5D2C580F73008CBA26 /* GistDetailService.swift in Sources */,
 				7F30FB202C57D601008CBA26 /* SceneDelegate.swift in Sources */,
+				7F30FB562C580919008CBA26 /* Endpoint.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
