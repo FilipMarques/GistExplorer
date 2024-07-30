@@ -7,18 +7,14 @@
 
 import Foundation
 
-import Foundation
-
 public enum Endpoint {
-    case gistsList
-    case gistDetails(id: String)
+    case gistsList(page: Int, perPage: Int)
 
     var url: URL? {
         switch self {
-        case .gistsList:
-            return URL(string: "https://api.github.com/gists/public")
-        case .gistDetails(let id):
-            return URL(string: "https://api.github.com/gists/\(id)")
+        case .gistsList(let page, let perPage):
+            let urlString = "https://api.github.com/gists/public?page=\(page)&per_page=\(perPage)"
+            return URL(string: urlString)
         }
     }
 }

@@ -15,7 +15,7 @@ struct APIConstants {
 
 
 public protocol GistServiceProtocol {
-    func fetchGists(completion: @escaping (Result<[GistModel], NetworkError>) -> Void)
+    func fetchGists(page: Int, perPage: Int, completion: @escaping (Result<[GistModel], NetworkError>) -> Void)
 }
 
 public class GistService: GistServiceProtocol {
@@ -25,7 +25,8 @@ public class GistService: GistServiceProtocol {
         self.apiClient = apiClient
     }
 
-    public func fetchGists(completion: @escaping (Result<[GistModel], NetworkError>) -> Void) {
-        apiClient.request(endpoint: .gistsList, method: "GET", completion: completion)
+    public func fetchGists(page: Int, perPage: Int, completion: @escaping (Result<[GistModel], NetworkError>) -> Void) {
+        let endpoint = Endpoint.gistsList(page: page, perPage: perPage)
+        apiClient.request(endpoint: endpoint, method: "GET", completion: completion)
     }
 }

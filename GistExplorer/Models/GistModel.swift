@@ -23,8 +23,8 @@ public struct GistModel: Codable {
         }
     }
 
-
     struct File: Codable {
-        // Apenas para obter a quantidade de arquivos, não precisamos de mais detalhes
+        let filename: String
     }
+
 }

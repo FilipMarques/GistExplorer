@@ -9,7 +9,7 @@
 /* Begin PBXBuildFile section */
 		7F30FB1E2C57D601008CBA26 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F30FB1D2C57D601008CBA26 /* AppDelegate.swift */; };
 		7F30FB202C57D601008CBA26 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F30FB1F2C57D601008CBA26 /* SceneDelegate.swift */; };
-		7F30FB222C57D601008CBA26 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F30FB212C57D601008CBA26 /* ViewController.swift */; };
+		7F30FB222C57D601008CBA26 /* GistListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F30FB212C57D601008CBA26 /* GistListViewController.swift */; };
 		7F30FB272C57D604008CBA26 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7F30FB262C57D604008CBA26 /* Assets.xcassets */; };
 		7F30FB2A2C57D604008CBA26 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7F30FB282C57D604008CBA26 /* LaunchScreen.storyboard */; };
 		7F30FB352C57D604008CBA26 /* GistExplorerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F30FB342C57D604008CBA26 /* GistExplorerTests.swift */; };
@@ -23,6 +23,9 @@
 		7F30FB602C580FE8008CBA26 /* GistModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F30FB5F2C580FE8008CBA26 /* GistModel.swift */; };
 		7F30FB622C5811D7008CBA26 /* ViewConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F30FB612C5811D7008CBA26 /* ViewConfiguration.swift */; };
 		7F30FB642C5816BF008CBA26 /* GistListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F30FB632C5816BF008CBA26 /* GistListViewModel.swift */; };
+		7FA843B72C58A4D3002D240A /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = 7FA843B62C58A4D3002D240A /* Kingfisher */; };
+		7FA843BA2C591E79002D240A /* GistDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FA843B92C591E79002D240A /* GistDetailViewController.swift */; };
+		7FC07E542C589CB300958DBE /* GistTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FC07E532C589CB300958DBE /* GistTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -46,7 +49,7 @@
 		7F30FB1A2C57D601008CBA26 /* GistExplorer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GistExplorer.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7F30FB1D2C57D601008CBA26 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		7F30FB1F2C57D601008CBA26 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		7F30FB212C57D601008CBA26 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		7F30FB212C57D601008CBA26 /* GistListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GistListViewController.swift; sourceTree = "<group>"; };
 		7F30FB262C57D604008CBA26 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		7F30FB292C57D604008CBA26 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		7F30FB2B2C57D604008CBA26 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -63,6 +66,8 @@
 		7F30FB5F2C580FE8008CBA26 /* GistModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GistModel.swift; sourceTree = "<group>"; };
 		7F30FB612C5811D7008CBA26 /* ViewConfiguration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewConfiguration.swift; sourceTree = "<group>"; };
 		7F30FB632C5816BF008CBA26 /* GistListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GistListViewModel.swift; sourceTree = "<group>"; };
+		7FA843B92C591E79002D240A /* GistDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GistDetailViewController.swift; sourceTree = "<group>"; };
+		7FC07E532C589CB300958DBE /* GistTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GistTableViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -70,6 +75,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7FA843B72C58A4D3002D240A /* Kingfisher in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -164,7 +170,9 @@
 		7F30FB4F2C58067E008CBA26 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				7F30FB212C57D601008CBA26 /* ViewController.swift */,
+				7F30FB212C57D601008CBA26 /* GistListViewController.swift */,
+				7FC07E532C589CB300958DBE /* GistTableViewCell.swift */,
+				7FA843B82C591E3B002D240A /* GistDetail */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -212,6 +220,14 @@
 			path = API;
 			sourceTree = "<group>";
 		};
+		7FA843B82C591E3B002D240A /* GistDetail */ = {
+			isa = PBXGroup;
+			children = (
+				7FA843B92C591E79002D240A /* GistDetailViewController.swift */,
+			);
+			path = GistDetail;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -228,6 +244,9 @@
 			dependencies = (
 			);
 			name = GistExplorer;
+			packageProductDependencies = (
+				7FA843B62C58A4D3002D240A /* Kingfisher */,
+			);
 			productName = GistExplorer;
 			productReference = 7F30FB1A2C57D601008CBA26 /* GistExplorer.app */;
 			productType = "com.apple.product-type.application";
@@ -300,6 +319,9 @@
 				Base,
 			);
 			mainGroup = 7F30FB112C57D601008CBA26;
+			packageReferences = (
+				7FA843B52C58A4D3002D240A /* XCRemoteSwiftPackageReference "Kingfisher" */,
+			);
 			productRefGroup = 7F30FB1B2C57D601008CBA26 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -342,8 +364,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7FA843BA2C591E79002D240A /* GistDetailViewController.swift in Sources */,
 				7F30FB602C580FE8008CBA26 /* GistModel.swift in Sources */,
-				7F30FB222C57D601008CBA26 /* ViewController.swift in Sources */,
+				7F30FB222C57D601008CBA26 /* GistListViewController.swift in Sources */,
 				7F30FB542C5808F7008CBA26 /* APIClientProtocol.swift in Sources */,
 				7F30FB642C5816BF008CBA26 /* GistListViewModel.swift in Sources */,
 				7F30FB622C5811D7008CBA26 /* ViewConfiguration.swift in Sources */,
@@ -351,6 +374,7 @@
 				7F30FB1E2C57D601008CBA26 /* AppDelegate.swift in Sources */,
 				7F30FB582C58092E008CBA26 /* NetworkError.swift in Sources */,
 				7F30FB5D2C580F73008CBA26 /* GistDetailService.swift in Sources */,
+				7FC07E542C589CB300958DBE /* GistTableViewCell.swift in Sources */,
 				7F30FB202C57D601008CBA26 /* SceneDelegate.swift in Sources */,
 				7F30FB562C580919008CBA26 /* Endpoint.swift in Sources */,
 			);
@@ -683,6 +707,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		7FA843B52C58A4D3002D240A /* XCRemoteSwiftPackageReference "Kingfisher" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/onevcat/Kingfisher.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 7.12.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		7FA843B62C58A4D3002D240A /* Kingfisher */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 7FA843B52C58A4D3002D240A /* XCRemoteSwiftPackageReference "Kingfisher" */;
+			productName = Kingfisher;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 7F30FB122C57D601008CBA26 /* Project object */;
 }
