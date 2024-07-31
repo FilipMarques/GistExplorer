@@ -106,7 +106,7 @@ class GistTableViewCell: UITableViewCell {
     func configure(with gist: GistModel) {
         usernameLabel.text = gist.owner.login
         fileCountLabel.text = "Files: \(gist.files.count)"
-        if let avatarURL = URL(string: gist.owner.avatarURL) {
+        if let avatarURL = URL(string: gist.owner.avatarURL ?? "") {
             avatarImageView.kf.setImage(with: avatarURL, placeholder: UIImage(named: "placeholder"))
         } else {
             avatarImageView.image = UIImage(named: "placeholder") // Fallback em caso de URL inválida

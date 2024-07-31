@@ -13,7 +13,7 @@ public struct GistModel: Codable {
 
     struct Owner: Codable {
         let login: String
-        let avatarURL: String
+        let avatarURL: String?
         let htmlURL: String
 
         enum CodingKeys: String, CodingKey {

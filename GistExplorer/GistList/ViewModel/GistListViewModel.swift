@@ -7,7 +7,7 @@
 
 import Foundation
 
-// MARK: - Protocol
+// MARK: - Protocols
 
 protocol GistListViewModelProtocol {
     var gists: [GistModel] { get }
@@ -16,38 +16,46 @@ protocol GistListViewModelProtocol {
 
     func fetchGists(onSuccess: @escaping () -> Void, onFailure: @escaping (Error) -> Void)
     func loadMoreGists(onSuccess: @escaping () -> Void, onFailure: @escaping (Error) -> Void)
+    func heightForRowAt(indexPath: IndexPath) -> CGFloat
 }
 
-// MARK: - ViewModel
+// MARK: - GistListViewModel
 
 class GistListViewModel: GistListViewModelProtocol {
-    private var page = 0
+    private(set) var page = 0
     private let pageSize = 20
     private let gistService: GistServiceProtocol
+    private let loadingStateManager: LoadingStateManager
+    private let errorHandler: ErrorHandler
+
     public var gists: [GistModel] = []
 
     var onGistsFetched: (([GistModel]) -> Void)?
     var onError: ((Error) -> Void)?
 
-    private var isLoading = false
-
-    init(gistService: GistServiceProtocol = GistService()) {
+    init(
+        gistService: GistServiceProtocol = GistService(),
+        loadingStateManager: LoadingStateManager = LoadingStateManager(),
+        errorHandler: ErrorHandler = ErrorHandler())
+    {
         self.gistService = gistService
+        self.loadingStateManager = loadingStateManager
+        self.errorHandler = errorHandler
     }
 
     func fetchGists(onSuccess: @escaping () -> Void, onFailure: @escaping (Error) -> Void) {
-        guard !isLoading else { return }
+        guard !loadingStateManager.isLoading else { return }
 
-        isLoading = true
+        loadingStateManager.startLoading()
         gistService.fetchGists(page: page, perPage: pageSize) { [weak self] result in
-            self?.isLoading = false
+            self?.loadingStateManager.stopLoading()
             switch result {
             case .success(let fetchedGists):
                 self?.gists.append(contentsOf: fetchedGists)
                 self?.onGistsFetched?(self?.gists ?? [])
                 onSuccess()
             case .failure(let error):
-                print("Failed to fetch gists: \(error)")
+                self?.errorHandler.handleError(error)
                 self?.onError?(error)
                 onFailure(error)
             }
@@ -58,4 +66,9 @@ class GistListViewModel: GistListViewModelProtocol {
         page += 1
         fetchGists(onSuccess: onSuccess, onFailure: onFailure)
     }
+
+    func heightForRowAt(indexPath: IndexPath) -> CGFloat {
+        return 80
+    }
 }
+

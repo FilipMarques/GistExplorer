@@ -9,7 +9,7 @@ import UIKit
 
 class GistListViewController: UIViewController {
 
-    private var viewModel: GistListViewModelProtocol?
+    private var viewModel: GistListViewModelProtocol
 
     private let tableView: UITableView = {
         let tableView = UITableView()
@@ -18,7 +18,6 @@ class GistListViewController: UIViewController {
         return tableView
     }()
 
-    // Inicialize com injeção de dependência
     init(viewModel: GistListViewModelProtocol) {
         self.viewModel = viewModel
         super.init(nibName: nil, bundle: nil)
@@ -36,11 +35,11 @@ class GistListViewController: UIViewController {
         setupViewConfiguration()
         configureNavigationBar()
 
-        setupViewModel()
+        fetchData()
     }
 
     private func configureNavigationBar() {
-        title = "Gists" // Título da navegação
+        title = "Gists"
         navigationController?.navigationBar.prefersLargeTitles = true
         navigationController?.navigationBar.tintColor = .systemBlue
     }
@@ -50,8 +49,8 @@ class GistListViewController: UIViewController {
         tableView.delegate = self
     }
 
-    private func setupViewModel() {
-        viewModel?.fetchGists(onSuccess: {
+    private func fetchData() {
+        viewModel.fetchGists(onSuccess: {
             DispatchQueue.main.async {
                 self.tableView.reloadData()
             }
@@ -79,7 +78,7 @@ extension GistListViewController: ViewConfiguration {
 
 extension GistListViewController: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return viewModel?.gists.count ?? 0
+        return viewModel.gists.count
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -87,29 +86,30 @@ extension GistListViewController: UITableViewDataSource, UITableViewDelegate {
             return UITableViewCell()
         }
 
-        guard let gist = viewModel?.gists[indexPath.row] else { return UITableViewCell() }
+        let gist = viewModel.gists[indexPath.row]
         cell.configure(with: gist)
         return cell
     }
 
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 80
+        return viewModel.heightForRowAt(indexPath: indexPath)
     }
 
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
-        let person = viewModel?.gists[indexPath.row]
-        let detailViewController = GistDetailViewController(name: person?.owner.login ?? "")
+        let selectedGist = viewModel.gists[indexPath.row]
+        let detailViewModel = GistDetailViewModel(gist: selectedGist)
+        let detailViewController = GistDetailViewController(viewModel: detailViewModel)
         navigationController?.pushViewController(detailViewController, animated: true)
     }
 
-    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+    func scrollViewDidScroll(_ scrollView: UIScrollView) { //fetchmoredataifneedit
         let offsetY = scrollView.contentOffset.y
         let contentHeight = scrollView.contentSize.height
         let frameHeight = scrollView.frame.size.height
 
         if offsetY > contentHeight - frameHeight {
-            viewModel?.loadMoreGists(onSuccess: {
+            viewModel.loadMoreGists(onSuccess: {
                 DispatchQueue.main.async {
                     self.tableView.reloadData()
                 }

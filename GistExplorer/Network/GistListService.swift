@@ -13,7 +13,6 @@ struct APIConstants {
     static let baseURL = "https://api.github.com/"
 }
 
-
 public protocol GistServiceProtocol {
     func fetchGists(page: Int, perPage: Int, completion: @escaping (Result<[GistModel], NetworkError>) -> Void)
 }
