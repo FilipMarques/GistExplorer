@@ -10,13 +10,21 @@ import Kingfisher
 
 class GistDetailViewController: UIViewController {
 
+    private let viewModel: GistDetailViewModelProtocol
+
     private let profileImageView: UIImageView = {
         let imageView = UIImageView()
         imageView.translatesAutoresizingMaskIntoConstraints = false
         imageView.contentMode = .scaleAspectFill
         imageView.clipsToBounds = true
         imageView.layer.cornerRadius = 50
-        imageView.backgroundColor = .lightGray
+        imageView.layer.borderWidth = 2
+        imageView.layer.borderColor = UIColor.systemGray4.cgColor
+        imageView.backgroundColor = .systemGray5
+        imageView.layer.shadowColor = UIColor.black.cgColor
+        imageView.layer.shadowOpacity = 0.25
+        imageView.layer.shadowOffset = CGSize(width: 0, height: 2)
+        imageView.layer.shadowRadius = 4
         return imageView
     }()
 
@@ -24,15 +32,15 @@ class GistDetailViewController: UIViewController {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
         label.textAlignment = .center
-        label.font = UIFont.systemFont(ofSize: 20, weight: .bold)
+        label.font = UIFont.systemFont(ofSize: 24, weight: .bold)
+        label.textColor = .label
         return label
     }()
-
-    private let viewModel: GistDetailViewModelProtocol
 
     init(viewModel: GistDetailViewModelProtocol) {
         self.viewModel = viewModel
         super.init(nibName: nil, bundle: nil)
+        view.accessibilityIdentifier = "GistDetailViewController"
     }
 
     required init?(coder: NSCoder) {
@@ -41,7 +49,7 @@ class GistDetailViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = .white
+        view.backgroundColor = .systemBackground
         setupViewConfiguration()
         configureViews()
     }

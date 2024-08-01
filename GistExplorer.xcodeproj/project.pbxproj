@@ -10,14 +10,13 @@
 		7F13ADFB2C5AD1DD0003C959 /* GistListViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F13ADFA2C5AD1DD0003C959 /* GistListViewModelTests.swift */; };
 		7F13ADFD2C5AE84F0003C959 /* GistDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F13ADFC2C5AE84F0003C959 /* GistDetailViewModel.swift */; };
 		7F13AE062C5AF4E30003C959 /* GistDetailViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F13AE052C5AF4E30003C959 /* GistDetailViewModelTests.swift */; };
+		7F13AE082C5C1B8B0003C959 /* GistListViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F13AE072C5C1B8B0003C959 /* GistListViewControllerTests.swift */; };
+		7F1792642C5C3FE5001D48D4 /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = 7F1792632C5C3FE5001D48D4 /* Kingfisher */; };
 		7F30FB1E2C57D601008CBA26 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F30FB1D2C57D601008CBA26 /* AppDelegate.swift */; };
 		7F30FB202C57D601008CBA26 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F30FB1F2C57D601008CBA26 /* SceneDelegate.swift */; };
 		7F30FB222C57D601008CBA26 /* GistListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F30FB212C57D601008CBA26 /* GistListViewController.swift */; };
 		7F30FB272C57D604008CBA26 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7F30FB262C57D604008CBA26 /* Assets.xcassets */; };
 		7F30FB2A2C57D604008CBA26 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7F30FB282C57D604008CBA26 /* LaunchScreen.storyboard */; };
-		7F30FB352C57D604008CBA26 /* GistExplorerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F30FB342C57D604008CBA26 /* GistExplorerTests.swift */; };
-		7F30FB3F2C57D604008CBA26 /* GistExplorerUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F30FB3E2C57D604008CBA26 /* GistExplorerUITests.swift */; };
-		7F30FB412C57D604008CBA26 /* GistExplorerUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F30FB402C57D604008CBA26 /* GistExplorerUITestsLaunchTests.swift */; };
 		7F30FB542C5808F7008CBA26 /* APIClientProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F30FB532C5808F7008CBA26 /* APIClientProtocol.swift */; };
 		7F30FB562C580919008CBA26 /* Endpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F30FB552C580919008CBA26 /* Endpoint.swift */; };
 		7F30FB582C58092E008CBA26 /* NetworkError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F30FB572C58092E008CBA26 /* NetworkError.swift */; };
@@ -28,7 +27,6 @@
 		7F30FB642C5816BF008CBA26 /* GistListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F30FB632C5816BF008CBA26 /* GistListViewModel.swift */; };
 		7F66E7452C5AC10B00509459 /* LoadingStateManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F66E7442C5AC10B00509459 /* LoadingStateManager.swift */; };
 		7F66E7472C5AC12300509459 /* ErrorHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F66E7462C5AC12300509459 /* ErrorHandler.swift */; };
-		7FA843B72C58A4D3002D240A /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = 7FA843B62C58A4D3002D240A /* Kingfisher */; };
 		7FA843BA2C591E79002D240A /* GistDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FA843B92C591E79002D240A /* GistDetailViewController.swift */; };
 		7FC07E542C589CB300958DBE /* GistTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FC07E532C589CB300958DBE /* GistTableViewCell.swift */; };
 /* End PBXBuildFile section */
@@ -54,6 +52,7 @@
 		7F13ADFA2C5AD1DD0003C959 /* GistListViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GistListViewModelTests.swift; sourceTree = "<group>"; };
 		7F13ADFC2C5AE84F0003C959 /* GistDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GistDetailViewModel.swift; sourceTree = "<group>"; };
 		7F13AE052C5AF4E30003C959 /* GistDetailViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GistDetailViewModelTests.swift; sourceTree = "<group>"; };
+		7F13AE072C5C1B8B0003C959 /* GistListViewControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GistListViewControllerTests.swift; sourceTree = "<group>"; };
 		7F30FB1A2C57D601008CBA26 /* GistExplorer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GistExplorer.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7F30FB1D2C57D601008CBA26 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		7F30FB1F2C57D601008CBA26 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -62,10 +61,7 @@
 		7F30FB292C57D604008CBA26 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		7F30FB2B2C57D604008CBA26 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		7F30FB302C57D604008CBA26 /* GistExplorerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = GistExplorerTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		7F30FB342C57D604008CBA26 /* GistExplorerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GistExplorerTests.swift; sourceTree = "<group>"; };
 		7F30FB3A2C57D604008CBA26 /* GistExplorerUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = GistExplorerUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		7F30FB3E2C57D604008CBA26 /* GistExplorerUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GistExplorerUITests.swift; sourceTree = "<group>"; };
-		7F30FB402C57D604008CBA26 /* GistExplorerUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GistExplorerUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		7F30FB532C5808F7008CBA26 /* APIClientProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIClientProtocol.swift; sourceTree = "<group>"; };
 		7F30FB552C580919008CBA26 /* Endpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Endpoint.swift; sourceTree = "<group>"; };
 		7F30FB572C58092E008CBA26 /* NetworkError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkError.swift; sourceTree = "<group>"; };
@@ -85,7 +81,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				7FA843B72C58A4D3002D240A /* Kingfisher in Frameworks */,
+				7F1792642C5C3FE5001D48D4 /* Kingfisher in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -205,7 +201,6 @@
 		7F30FB332C57D604008CBA26 /* GistExplorerTests */ = {
 			isa = PBXGroup;
 			children = (
-				7F30FB342C57D604008CBA26 /* GistExplorerTests.swift */,
 				7F13ADFA2C5AD1DD0003C959 /* GistListViewModelTests.swift */,
 				7F13AE052C5AF4E30003C959 /* GistDetailViewModelTests.swift */,
 			);
@@ -215,8 +210,7 @@
 		7F30FB3D2C57D604008CBA26 /* GistExplorerUITests */ = {
 			isa = PBXGroup;
 			children = (
-				7F30FB3E2C57D604008CBA26 /* GistExplorerUITests.swift */,
-				7F30FB402C57D604008CBA26 /* GistExplorerUITestsLaunchTests.swift */,
+				7F13AE072C5C1B8B0003C959 /* GistListViewControllerTests.swift */,
 			);
 			path = GistExplorerUITests;
 			sourceTree = "<group>";
@@ -308,7 +302,7 @@
 			);
 			name = GistExplorer;
 			packageProductDependencies = (
-				7FA843B62C58A4D3002D240A /* Kingfisher */,
+				7F1792632C5C3FE5001D48D4 /* Kingfisher */,
 			);
 			productName = GistExplorer;
 			productReference = 7F30FB1A2C57D601008CBA26 /* GistExplorer.app */;
@@ -383,7 +377,7 @@
 			);
 			mainGroup = 7F30FB112C57D601008CBA26;
 			packageReferences = (
-				7FA843B52C58A4D3002D240A /* XCRemoteSwiftPackageReference "Kingfisher" */,
+				7F1792622C5C3FE5001D48D4 /* XCRemoteSwiftPackageReference "Kingfisher" */,
 			);
 			productRefGroup = 7F30FB1B2C57D601008CBA26 /* Products */;
 			projectDirPath = "";
@@ -450,7 +444,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				7F30FB352C57D604008CBA26 /* GistExplorerTests.swift in Sources */,
 				7F13AE062C5AF4E30003C959 /* GistDetailViewModelTests.swift in Sources */,
 				7F13ADFB2C5AD1DD0003C959 /* GistListViewModelTests.swift in Sources */,
 			);
@@ -460,8 +453,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				7F30FB412C57D604008CBA26 /* GistExplorerUITestsLaunchTests.swift in Sources */,
-				7F30FB3F2C57D604008CBA26 /* GistExplorerUITests.swift in Sources */,
+				7F13AE082C5C1B8B0003C959 /* GistListViewControllerTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -777,7 +769,7 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		7FA843B52C58A4D3002D240A /* XCRemoteSwiftPackageReference "Kingfisher" */ = {
+		7F1792622C5C3FE5001D48D4 /* XCRemoteSwiftPackageReference "Kingfisher" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/onevcat/Kingfisher.git";
 			requirement = {
@@ -788,9 +780,9 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		7FA843B62C58A4D3002D240A /* Kingfisher */ = {
+		7F1792632C5C3FE5001D48D4 /* Kingfisher */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 7FA843B52C58A4D3002D240A /* XCRemoteSwiftPackageReference "Kingfisher" */;
+			package = 7F1792622C5C3FE5001D48D4 /* XCRemoteSwiftPackageReference "Kingfisher" */;
 			productName = Kingfisher;
 		};
 /* End XCSwiftPackageProductDependency section */

@@ -15,7 +15,17 @@ class GistListViewController: UIViewController {
         let tableView = UITableView()
         tableView.translatesAutoresizingMaskIntoConstraints = false
         tableView.register(GistTableViewCell.self, forCellReuseIdentifier: "GistTableViewCell")
+        tableView.separatorStyle = .none
+        tableView.accessibilityIdentifier = "gistTableView" // Identificador para testes
         return tableView
+    }()
+
+    private let loadingIndicator: UIActivityIndicatorView = {
+        let indicator = UIActivityIndicatorView(style: .large)
+        indicator.translatesAutoresizingMaskIntoConstraints = false
+        indicator.hidesWhenStopped = true
+        indicator.accessibilityIdentifier = "loadingIndicator" // Identificador para testes
+        return indicator
     }()
 
     init(viewModel: GistListViewModelProtocol) {
@@ -29,7 +39,7 @@ class GistListViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = .white
+        view.backgroundColor = .systemBackground
 
         setupTableView()
         setupViewConfiguration()
@@ -50,20 +60,30 @@ class GistListViewController: UIViewController {
     }
 
     private func fetchData() {
+        print("Starting data fetch...")
+        loadingIndicator.startAnimating()
+
         viewModel.fetchGists(onSuccess: {
+            print("Data fetch successful.")
             DispatchQueue.main.async {
+                self.loadingIndicator.stopAnimating()
                 self.tableView.reloadData()
             }
         }, onFailure: { error in
-            print("Failed to fetch gists: \(error)")
+            print("Data fetch failed: \(error)")
+            DispatchQueue.main.async {
+                self.loadingIndicator.stopAnimating()
+            }
         })
     }
 
 }
 
+
 extension GistListViewController: ViewConfiguration {
     func buildViewHierarchy() {
         view.addSubview(tableView)
+        view.addSubview(loadingIndicator)
     }
 
     func setupConstraints() {
@@ -71,7 +91,10 @@ extension GistListViewController: ViewConfiguration {
             tableView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
             tableView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor),
             tableView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor),
-            tableView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor)
+            tableView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor),
+
+            loadingIndicator.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            loadingIndicator.centerYAnchor.constraint(equalTo: view.centerYAnchor)
         ])
     }
 }
@@ -88,6 +111,13 @@ extension GistListViewController: UITableViewDataSource, UITableViewDelegate {
 
         let gist = viewModel.gists[indexPath.row]
         cell.configure(with: gist)
+        cell.selectionStyle = .none
+        cell.layer.cornerRadius = 8
+        cell.layer.masksToBounds = true
+        cell.layer.shadowColor = UIColor.black.cgColor
+        cell.layer.shadowOpacity = 0.1
+        cell.layer.shadowOffset = CGSize(width: 0, height: 2)
+        cell.layer.shadowRadius = 4
         return cell
     }
 
@@ -103,7 +133,7 @@ extension GistListViewController: UITableViewDataSource, UITableViewDelegate {
         navigationController?.pushViewController(detailViewController, animated: true)
     }
 
-    func scrollViewDidScroll(_ scrollView: UIScrollView) { //fetchmoredataifneedit
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
         let offsetY = scrollView.contentOffset.y
         let contentHeight = scrollView.contentSize.height
         let frameHeight = scrollView.frame.size.height
