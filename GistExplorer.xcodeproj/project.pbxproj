@@ -12,6 +12,9 @@
 		7F13AE062C5AF4E30003C959 /* GistDetailViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F13AE052C5AF4E30003C959 /* GistDetailViewModelTests.swift */; };
 		7F13AE082C5C1B8B0003C959 /* GistListViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F13AE072C5C1B8B0003C959 /* GistListViewControllerTests.swift */; };
 		7F1792642C5C3FE5001D48D4 /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = 7F1792632C5C3FE5001D48D4 /* Kingfisher */; };
+		7F17926B2C5D013D001D48D4 /* MockGistService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F17926A2C5D013D001D48D4 /* MockGistService.swift */; };
+		7F17926D2C5D018D001D48D4 /* MockLoadingStateManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F17926C2C5D018D001D48D4 /* MockLoadingStateManager.swift */; };
+		7F17926F2C5D022A001D48D4 /* MockErrorHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F17926E2C5D022A001D48D4 /* MockErrorHandler.swift */; };
 		7F30FB1E2C57D601008CBA26 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F30FB1D2C57D601008CBA26 /* AppDelegate.swift */; };
 		7F30FB202C57D601008CBA26 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F30FB1F2C57D601008CBA26 /* SceneDelegate.swift */; };
 		7F30FB222C57D601008CBA26 /* GistListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F30FB212C57D601008CBA26 /* GistListViewController.swift */; };
@@ -53,6 +56,9 @@
 		7F13ADFC2C5AE84F0003C959 /* GistDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GistDetailViewModel.swift; sourceTree = "<group>"; };
 		7F13AE052C5AF4E30003C959 /* GistDetailViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GistDetailViewModelTests.swift; sourceTree = "<group>"; };
 		7F13AE072C5C1B8B0003C959 /* GistListViewControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GistListViewControllerTests.swift; sourceTree = "<group>"; };
+		7F17926A2C5D013D001D48D4 /* MockGistService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockGistService.swift; sourceTree = "<group>"; };
+		7F17926C2C5D018D001D48D4 /* MockLoadingStateManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockLoadingStateManager.swift; sourceTree = "<group>"; };
+		7F17926E2C5D022A001D48D4 /* MockErrorHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockErrorHandler.swift; sourceTree = "<group>"; };
 		7F30FB1A2C57D601008CBA26 /* GistExplorer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GistExplorer.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7F30FB1D2C57D601008CBA26 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		7F30FB1F2C57D601008CBA26 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -161,6 +167,16 @@
 			path = Cells;
 			sourceTree = "<group>";
 		};
+		7F1792652C5D00A2001D48D4 /* Mocks */ = {
+			isa = PBXGroup;
+			children = (
+				7F17926A2C5D013D001D48D4 /* MockGistService.swift */,
+				7F17926C2C5D018D001D48D4 /* MockLoadingStateManager.swift */,
+				7F17926E2C5D022A001D48D4 /* MockErrorHandler.swift */,
+			);
+			path = Mocks;
+			sourceTree = "<group>";
+		};
 		7F30FB112C57D601008CBA26 = {
 			isa = PBXGroup;
 			children = (
@@ -203,6 +219,7 @@
 			children = (
 				7F13ADFA2C5AD1DD0003C959 /* GistListViewModelTests.swift */,
 				7F13AE052C5AF4E30003C959 /* GistDetailViewModelTests.swift */,
+				7F1792652C5D00A2001D48D4 /* Mocks */,
 			);
 			path = GistExplorerTests;
 			sourceTree = "<group>";
@@ -444,8 +461,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7F17926D2C5D018D001D48D4 /* MockLoadingStateManager.swift in Sources */,
+				7F17926B2C5D013D001D48D4 /* MockGistService.swift in Sources */,
 				7F13AE062C5AF4E30003C959 /* GistDetailViewModelTests.swift in Sources */,
 				7F13ADFB2C5AD1DD0003C959 /* GistListViewModelTests.swift in Sources */,
+				7F17926F2C5D022A001D48D4 /* MockErrorHandler.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

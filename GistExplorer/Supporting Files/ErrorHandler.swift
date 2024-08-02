@@ -9,7 +9,6 @@ import Foundation
 
 class ErrorHandler {
     func handleError(_ error: Error) {
-        // Implement logging or other error handling as needed
         print("Error occurred: \(error.localizedDescription)")
     }
 }

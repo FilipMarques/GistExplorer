@@ -11,12 +11,18 @@ class GistListViewController: UIViewController {
 
     private var viewModel: GistListViewModelProtocol
 
+    private enum Constants {
+        static let gistCellIdentifier = "gistTableViewCellIdentifier"
+        static let loadingIndicatorIdentifier = "loadingIndicator"
+        static let gistTableViewIdentifier = "gistTableViewIdentifier"
+    }
+
     private let tableView: UITableView = {
         let tableView = UITableView()
         tableView.translatesAutoresizingMaskIntoConstraints = false
-        tableView.register(GistTableViewCell.self, forCellReuseIdentifier: "GistTableViewCell")
+        tableView.register(GistTableViewCell.self, forCellReuseIdentifier: Constants.gistCellIdentifier)
         tableView.separatorStyle = .none
-        tableView.accessibilityIdentifier = "gistTableView" // Identificador para testes
+        tableView.accessibilityIdentifier = Constants.gistTableViewIdentifier
         return tableView
     }()
 
@@ -24,7 +30,7 @@ class GistListViewController: UIViewController {
         let indicator = UIActivityIndicatorView(style: .large)
         indicator.translatesAutoresizingMaskIntoConstraints = false
         indicator.hidesWhenStopped = true
-        indicator.accessibilityIdentifier = "loadingIndicator" // Identificador para testes
+        indicator.accessibilityIdentifier = Constants.loadingIndicatorIdentifier
         return indicator
     }()
 
@@ -60,21 +66,25 @@ class GistListViewController: UIViewController {
     }
 
     private func fetchData() {
-        print("Starting data fetch...")
         loadingIndicator.startAnimating()
 
         viewModel.fetchGists(onSuccess: {
-            print("Data fetch successful.")
             DispatchQueue.main.async {
                 self.loadingIndicator.stopAnimating()
                 self.tableView.reloadData()
             }
         }, onFailure: { error in
-            print("Data fetch failed: \(error)")
             DispatchQueue.main.async {
                 self.loadingIndicator.stopAnimating()
+                self.showErrorAlert(error)
             }
         })
+    }
+
+    private func showErrorAlert(_ error: Error) {
+        let alert = UIAlertController(title: "Error", message: error.localizedDescription, preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+        present(alert, animated: true, completion: nil)
     }
 
 }
@@ -105,19 +115,12 @@ extension GistListViewController: UITableViewDataSource, UITableViewDelegate {
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: "GistTableViewCell", for: indexPath) as? GistTableViewCell else {
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: Constants.gistCellIdentifier, for: indexPath) as? GistTableViewCell else {
             return UITableViewCell()
         }
 
         let gist = viewModel.gists[indexPath.row]
         cell.configure(with: gist)
-        cell.selectionStyle = .none
-        cell.layer.cornerRadius = 8
-        cell.layer.masksToBounds = true
-        cell.layer.shadowColor = UIColor.black.cgColor
-        cell.layer.shadowOpacity = 0.1
-        cell.layer.shadowOffset = CGSize(width: 0, height: 2)
-        cell.layer.shadowRadius = 4
         return cell
     }
 
