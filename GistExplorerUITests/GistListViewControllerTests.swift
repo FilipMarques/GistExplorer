@@ -31,7 +31,7 @@ class GistListViewControllerTests: XCTestCase {
 
     func testLoadingIndicatorVisibleDuringDataFetch() {
         let loadingIndicator = app.activityIndicators["loadingIndicator"]
-        let tableView = app.tables["gistTableView"]
+        let tableView = app.tables["gistTableViewIdentifier"]
 
         // Verifica se o indicador de carregamento está visível
         XCTAssertTrue(loadingIndicator.waitForExistence(timeout: 10))
@@ -47,7 +47,7 @@ class GistListViewControllerTests: XCTestCase {
     }
 
     func testTableViewDisplaysCellsAfterDataLoad() {
-        let tableView = app.tables["gistTableView"]
+        let tableView = app.tables["gistTableViewIdentifier"]
 
         // Espera até que a tabela esteja visível e tenha pelo menos uma célula
         let tableExistsPredicate = NSPredicate(format: "exists == true")
@@ -63,7 +63,7 @@ class GistListViewControllerTests: XCTestCase {
 
 
     func testCellTapNavigatesToDetailView() {
-        let tableView = app.tables["gistTableView"]
+        let tableView = app.tables["gistTableViewIdentifier"]
 
         // Espera que a tabela e a primeira célula existam
         let cell = tableView.cells.element(boundBy: 0)
@@ -78,7 +78,7 @@ class GistListViewControllerTests: XCTestCase {
     }
 
     func testLoadMoreGistsOnScroll() {
-        let tableView = app.tables["gistTableView"]
+        let tableView = app.tables["gistTableViewIdentifier"]
 
         // Verificar se a tabela está visível
         XCTAssertTrue(tableView.waitForExistence(timeout: 5))
